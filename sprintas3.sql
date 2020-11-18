@@ -1,0 +1,1 @@
+SELECT * FROM sprintas3.employees;
