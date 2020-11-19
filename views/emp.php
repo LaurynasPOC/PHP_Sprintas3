@@ -47,10 +47,9 @@ if(isset($_REQUEST['sr'])){
         . "<td>" . $e->getLastname() . "</td>" 
         . "<td>" . $e->getAge() . "</td>" 
         . "<td>" . $e->getPhone_number() . "</td>" 
-        . "<td>" . $e->getPosition_id() . "</td>" 
-        // . "<td>" . $e->getEmpPositions(). "</td>" 
+        . "<td>" . $e->getEmpPositions()->getPositions() . "</td>" 
         . "<td><button><a href='delMethods.php?edelete={$e->getId()}'>DELETE</a></button>" 
-        . "<button><a href='updateEmp.php?eupdatable={$e->getId()}'>UPDATE</a></button></td>"
+        . "<button><a href='?eupdatable={$e->getId()}'>UPDATE</a></button></td>"
             . "</tr>");
     print("</table>"); ?>
 

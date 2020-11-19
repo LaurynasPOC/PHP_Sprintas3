@@ -18,6 +18,8 @@ switch ($request) {
     case $route_prefix.'/addpos' :
         require __DIR__ . '/views/addPos.php';
         break;
+    case $route_prefix.'/addEmp' :
+        require __DIR__ . '/views/addEmp.php';
     case preg_filter('/edelete=[0-9]+/', '$0' ,$request):
         require __DIR__ . '/views/delMethods.php';    
         break;
@@ -30,8 +32,7 @@ switch ($request) {
     case preg_filter('/updatable=[0-9]+/', '$0' ,$request):
         require __DIR__ . '/views/updatePos.php';    
         break;
-    case $route_prefix.'/addEmp' :
-        require __DIR__ . '/views/addEmp.php';
+    
         break;
     default:
         http_response_code(404);

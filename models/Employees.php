@@ -51,9 +51,9 @@ class Employees
     {
         return $this->empPositions;
     }
-    public function setEmpPositions($positions)
+    public function setEmpPositions($pos)
     {
-        $this->empPositions = $positions;
+        $this->empPositions = $pos;
     }
 
     public function getId()

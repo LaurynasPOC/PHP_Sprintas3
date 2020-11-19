@@ -4,12 +4,15 @@ include_once 'bootstrap.php';
 
 if(isset($_REQUEST['add'])){
     $emp = new Employees();
+    // $pos = new Positions();
     $emp->setName($_REQUEST['name']);
     $emp->setLastname($_REQUEST['lastname']);
     $emp->setAge($_REQUEST['age']);
     $emp->setPhone_number($_REQUEST['phone_number']);
-    $emp->setPosition_id($_REQUEST['position_id']);
+    // $position = $emp->setPosition_id($_REQUEST['position_id']);
+    $emp->getEmpPositions($_REQUEST['position_id']);
     $entityManager->persist($emp);
+    // $entityManager->persist($pos);
     $entityManager->flush();
     header("Location: emp");
 } 
@@ -34,22 +37,13 @@ if(isset($_REQUEST['add'])){
   <label  for="name">Employee phone number: </label><br>
   <input  type="text" name="phone_number"><br>
   <select name="position_id">
-            <?php
-            $conn = mysqli_connect("localhost", "root", "mysql", "sprintas3");
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
+  <?php
+            // Print all projects names in select options
+            $positions = $entityManager->getRepository('EmpData\Positions')->findAll();
+            foreach($positions as $p) {
+                print('<option value=' . $p->getId() . '>' . $p->getPositions() . '</option>');
             }
-            $sql = "SELECT id, positions 
-                FROM positions";
-
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <option value="<?php echo $row['id']; ?>"><?php echo $row['positions']; ?></option>
-                    <?php 
-                }
-            } ?>
+            ?>
         </select>
   <input class="in" type="submit" name='add' value="Submit">
 </form>

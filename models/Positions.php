@@ -29,8 +29,6 @@ class Positions
 
     public function __construct() {
         $this->employeesData = new ArrayCollection();
-        // $emp = new Employees;
-        // $emp->getName();
     }
 
     public function getId()
@@ -50,6 +48,15 @@ class Positions
     public function getPositions()
     {
         return $this->positions;
+    }
+
+    public function getEmployeesData()
+    {
+        return $this->employeesData;
+    }
+    public function setEmployeesData($employeesData)
+    {
+        return $this->employeesData = $employeesData;
     }
     public function getName()
     {

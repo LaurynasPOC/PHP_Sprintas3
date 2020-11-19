@@ -38,8 +38,7 @@ foreach($position as $p)
     print("<tr>" 
             . "<td>" . $p->getId()  . "</td>" 
             . "<td>" . $p->getPositions() . "</td>" 
-            . "<td>" . $p->getName() . "</td>" 
-            // . "<td>" . $p->getEmployeesData() . "</td>" 
+            . "<td>" . $p->getName(). "</td>" 
             . "<td><button><a href='delMethods.php?pdelete={$p->getId()}'>DELETE</a></button>" 
             . "<button><a href='?updatable={$p->getId()}'>UPDATE</a></button></td>"
         . "</tr>");

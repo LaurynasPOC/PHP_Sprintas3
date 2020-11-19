@@ -1,1 +1,1 @@
-SELECT * FROM sprintas3.employees;
+SELECT * FROM sprintas3.positions;
